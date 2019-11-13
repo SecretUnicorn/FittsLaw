@@ -1,9 +1,4 @@
-
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.ReadOnlyDoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -51,6 +46,7 @@ class TestController {
 
     private void startStopTest() {
         if (testIsRunning) {
+            random = new Random(System.currentTimeMillis());
             timeElapsed.set(0);
             start = new Rectangle(100, 100);
             start.setFill(Color.GREEN);
@@ -58,7 +54,7 @@ class TestController {
             end.setFill(Color.rgb(43, 170, 255));
             boolean left = random.nextBoolean();
             boolean up = random.nextBoolean();
-            int multi = (test == 0 || test == 2 ? 5 : 1) * (test == 2 ? 4 : 1);
+            int multi = (test == 0 || test == 2 ? 7 : 1) * (test == 2 ? 5 : 1);
 
             int startX = random.nextInt(30 * multi);
             int startY = random.nextInt(30 * multi);
@@ -95,7 +91,9 @@ class TestController {
 
         } else {
             view.time.setText("Test 1 (near & big): \nTest 2 (far & big): \nTest 3 (near & small): \nTest 4 (far & small):");
+            view.start.setText("Start 1. Test");
             testIsRunning = true;
+            test = 0;
         }
     }
 

@@ -1,12 +1,11 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-
-import java.util.UUID;
 
 
+/**
+ * @author Nicklas Ahlers
+ */
 public class Test extends Application {
 
     /*
