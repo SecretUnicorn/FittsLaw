@@ -53,10 +53,9 @@ class TestController {
             end.setFill(Color.rgb(43, 170, 255));
             boolean left = random.nextBoolean();
             boolean up = random.nextBoolean();
-            int multi = (test == 0 || test == 2 ? 7 : 1) * (test == 2 ? 5 : 1);
-
-            int startX = random.nextInt(30 * multi);
-            int startY = random.nextInt(30 * multi);
+            int multi = (test == 0 || test == 2 ? 7 : 1) * (test == 2 ? 3 : 1);
+            int startX = random.nextInt(30) * multi;
+            int startY = random.nextInt(30) * multi;
             this.view.anchorPane.getChildren().add(start);
 
             double width = this.view.anchorPane.widthProperty().getValue();
