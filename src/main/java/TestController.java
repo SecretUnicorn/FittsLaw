@@ -1,4 +1,4 @@
-import javafx.application.Platform;
+        import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -88,7 +88,7 @@ class TestController {
 
 
         } else {
-            view.time.setText("Test 1 (near & big): \nTest 2 (far & big): \nTest 3 (near & small): \nTest 4 (far & small):");
+			updateTimes();
             view.start.setText("Start 1. Test");
             testIsRunning = true;
             test = 0;
@@ -119,6 +119,7 @@ class TestController {
             updateTimes();
             this.view.start.setText("Reset Test");
             testIsRunning = false;
+			updateTimes();
         }
     }
 
