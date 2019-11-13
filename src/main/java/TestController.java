@@ -12,15 +12,15 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-public class TestController {
+class TestController {
 
     public class Timer extends Thread {
         @Override
         public void run() {
             while (!this.isInterrupted()) {
-                timeElapsed.set(timeElapsed.get() + 5);
+                timeElapsed.set(timeElapsed.get() + 1);
                 try {
-                    sleep(5);
+                    sleep(1);
                 } catch (InterruptedException e) {
                     this.interrupt();
                 }
@@ -34,16 +34,13 @@ public class TestController {
     private boolean testIsRunning = true;
     private Rectangle start;
     private Rectangle end;
-    SimpleIntegerProperty timeElapsed = new SimpleIntegerProperty(0);
+    private SimpleIntegerProperty timeElapsed = new SimpleIntegerProperty(0);
 
-    Timer timer = new Timer();
-
-    double width = 0;
-    double height = 0;
+    private Timer timer = new Timer();
 
     private double[] times = {0, 0, 0, 0};
 
-    public TestController(Stage pState) {
+    TestController(Stage pState) {
         this.random = new Random(System.currentTimeMillis());
         this.view = new TestWindow();
         this.view.start.setOnAction(event -> {
@@ -52,9 +49,9 @@ public class TestController {
 
     }
 
-    public void startStopTest() {
+    private void startStopTest() {
         if (testIsRunning) {
-
+            timeElapsed.set(0);
             start = new Rectangle(100, 100);
             start.setFill(Color.GREEN);
             end = new Rectangle(20 * (test < 2 ? 10 : 1), 20 * (test < 2 ? 10 : 1));
@@ -66,8 +63,9 @@ public class TestController {
             int startX = random.nextInt(30 * multi);
             int startY = random.nextInt(30 * multi);
             this.view.anchorPane.getChildren().add(start);
-            width = this.view.anchorPane.widthProperty().getValue();
-            height = this.view.anchorPane.heightProperty().getValue();
+
+            double width = this.view.anchorPane.widthProperty().getValue();
+            double height = this.view.anchorPane.heightProperty().getValue();
             AnchorPane.setLeftAnchor(start, width/2-50);
             AnchorPane.setRightAnchor(start, width/2-50);
             AnchorPane.setTopAnchor(start, height/2-50);
@@ -101,19 +99,19 @@ public class TestController {
         }
     }
 
-    public void starTimer() {
+    private void starTimer() {
         this.timeElapsed.addListener(((observable, oldValue, newValue) -> {
             double ms = newValue.doubleValue();
             double sec = newValue.doubleValue() / 1000.0;
             Platform.runLater(() -> {
-                view.time.setText("Time elapsed: " + ms + "ms / " + sec + "s");
+                view.time.setText("Time elapsed: \t" + ms + "ms\nTime elapsed: \t" + sec + "s");
             });
 
         }));
         this.timer.start();
     }
 
-    public void stopTimer() {
+    private void stopTimer() {
         this.view.anchorPane.getChildren().remove(end);
         times[test] = this.timeElapsed.getValue();
         this.timer.interrupt();
@@ -128,14 +126,14 @@ public class TestController {
         }
     }
 
-    public void updateTimes() {
-        view.time.setText("Test 1 (near & big): " + (times[0] != 0 ? times[0] : "") +
-                "\nTest 2 (far & big): " + (times[1] != 0 ? times[1] : "") +
-                "\nTest 3 (near & small): " + (times[2] != 0 ? times[2] : "") +
-                "\nTest 4 (far & small):" + (times[3] != 0 ? times[3] : ""));
+    private void updateTimes() {
+        view.time.setText("Test 1 (near & big): " + (times[0] != 0 ? times[0]/1000 : "") +
+                "s\nTest 2 (far & big): " + (times[1] != 0 ? times[1]/1000 : "") +
+                "s\nTest 3 (near & small): " + (times[2] != 0 ? times[2]/1000 : "") +
+                "s\nTest 4 (far & small):" + (times[3] != 0 ? times[3]/1000 : "") + "s");
     }
 
-    public TestWindow getView() {
+    TestWindow getView() {
         return view;
     }
 
