@@ -3,7 +3,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
 import java.util.Random;
 
@@ -35,7 +34,7 @@ class TestController {
 
     private double[] times = {0, 0, 0, 0};
 
-    TestController(Stage pState) {
+    TestController() {
         this.random = new Random(System.currentTimeMillis());
         this.view = new TestWindow();
         this.view.start.setOnAction(event -> {

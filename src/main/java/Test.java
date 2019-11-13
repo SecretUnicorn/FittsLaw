@@ -8,21 +8,9 @@ import javafx.stage.Stage;
  */
 public class Test extends Application {
 
-    /*
-
-    https://github.com/jfoenixadmin/JFoenix
-
-     */
-
     private Scene mainScene;
-    private Stage pStage;
     private TestController testController;
-    /*
 
-        Pro Chat dann halt sagen ok sende Nachricht XY an ClientBsp Z
-        send(msgXY, getIp(Z), getPort(Z))
-
-     */
 
     @Override
     public void init() throws Exception {
@@ -36,11 +24,10 @@ public class Test extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.pStage = primaryStage;
-        testController = new TestController(primaryStage);
+        testController = new TestController();
         mainScene = new Scene(testController.getView(), 800, 800);
 
-        primaryStage.setTitle("MCI - Test");
+        primaryStage.setTitle("MCI Fitts Test - Ahlers - Melcher");
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }

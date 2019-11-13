@@ -15,7 +15,7 @@ public class TestWindow extends VBox {
     AnchorPane anchorPane;
     JFXButton start;
 
-    public TestWindow(){
+    TestWindow() {
         anchorPane = new AnchorPane();
         anchorPane.setBackground(new Background(new BackgroundFill(Color.rgb(220,220,220), null, null)));
         titel = new Label("Fitts law - Test");

@@ -1,3 +1,3 @@
-# Test to prove Fitts Law
+# Test to proof Fitts Law
 
 Written by Nicklas Ahlers
