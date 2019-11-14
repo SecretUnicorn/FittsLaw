@@ -80,7 +80,6 @@ public class TestController2 {
                 show_sec = (int) show_sec;
                 show_sec /= 100;
                 view.time.setText("Zeit verbleibend: \t" + String.format("%.2f", show_sec) + "s\nAnzahl Treffer: \t" + clicks);
-                System.out.println(String.format("%.2f", show_sec) + " - " + TIME_PER_TEST);
             });
 
             if (sec < 0) {
