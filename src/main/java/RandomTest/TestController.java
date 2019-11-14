@@ -10,6 +10,11 @@ import java.util.Random;
 public class TestController {
 
     public class Timer extends Thread {
+
+        Timer() {
+            setDaemon(true);
+        }
+
         @Override
         public void run() {
             while (!this.isInterrupted()) {
