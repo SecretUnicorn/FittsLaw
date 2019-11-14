@@ -1,3 +1,5 @@
+package RandomTest;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,6 +13,9 @@ public class Test extends Application {
     private Scene mainScene;
     private TestController testController;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void init() throws Exception {
@@ -30,11 +35,6 @@ public class Test extends Application {
         primaryStage.setTitle("MCI Fitts Test - Ahlers - Melcher");
         primaryStage.setScene(mainScene);
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }

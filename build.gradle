@@ -19,7 +19,7 @@ repositories {
 
 apply plugin: 'application'
 
-mainClassName = 'Test'
+mainClassName = 'application.Main'
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'

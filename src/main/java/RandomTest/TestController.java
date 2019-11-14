@@ -1,3 +1,4 @@
+package RandomTest;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.AnchorPane;
@@ -6,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-class TestController {
+public class TestController {
 
     public class Timer extends Thread {
         @Override
@@ -34,7 +35,7 @@ class TestController {
 
     private double[] times = {0, 0, 0, 0};
 
-    TestController() {
+    public TestController() {
         this.random = new Random(System.currentTimeMillis());
         this.view = new TestWindow();
         this.view.start.setOnAction(event -> {
@@ -130,7 +131,7 @@ class TestController {
                 "s\nTest 4 (far & small):" + (times[3] != 0 ? times[3]/1000 : "") + "s");
     }
 
-    TestWindow getView() {
+    public TestWindow getView() {
         return view;
     }
 
