@@ -1,4 +1,4 @@
-        import javafx.application.Platform;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -54,8 +54,8 @@ class TestController {
             boolean left = random.nextBoolean();
             boolean up = random.nextBoolean();
             int multi = (test == 0 || test == 2 ? 7 : 1) * (test == 2 ? 3 : 1);
-            int startX = random.nextInt(30) * multi;
-            int startY = random.nextInt(30) * multi;
+            int startX = random.nextInt(35) * multi;
+            int startY = random.nextInt(35) * multi;
             this.view.anchorPane.getChildren().add(start);
 
             double width = this.view.anchorPane.widthProperty().getValue();
@@ -88,7 +88,7 @@ class TestController {
 
 
         } else {
-			updateTimes();
+            updateTimes();
             view.start.setText("Start 1. Test");
             testIsRunning = true;
             test = 0;
@@ -119,7 +119,7 @@ class TestController {
             updateTimes();
             this.view.start.setText("Reset Test");
             testIsRunning = false;
-			updateTimes();
+            updateTimes();
         }
     }
 

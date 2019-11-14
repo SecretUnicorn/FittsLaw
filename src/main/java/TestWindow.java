@@ -5,7 +5,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 
-public class TestWindow extends VBox {
+class TestWindow extends VBox {
 
     private VBox top;
     private HBox bottom;
@@ -19,10 +19,16 @@ public class TestWindow extends VBox {
         anchorPane = new AnchorPane();
         anchorPane.setBackground(new Background(new BackgroundFill(Color.rgb(220,220,220), null, null)));
         titel = new Label("Fitts law - Test");
-        time = new Label("Test 1 (near & big): \nTest 2 (far & big): \nTest 3 (near & small): \nTest 4 (far & small): \n    ");
+        time = new Label("Tutorial\n" +
+                "1. Press Start Test\n" +
+                "2. Click inside the green Rectangle\n" +
+                "3. Click the blue Rectangle ASAP\n" +
+                "4. Repeat 4 times\n" +
+                "5. Check the end result");
         top = new VBox();
         bottom = new HBox();
         start = new JFXButton("Start test");
+
         start.setButtonType(JFXButton.ButtonType.RAISED);
         start.setStyle("-fx-text-fill:#1e1e1e;-fx-background-color:#ffffff;-fx-font-size:10px;-fx-padding:5px;");
         this.top.getChildren().addAll(titel, start);
